@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme inline {
+	--color-primary: var(--color-yellow-400);
+	--color-primary-hover: var(--color-yellow-500);
+	--font-display: "Bungee Shade", cursive;
+	--font-sans: "Manrope", sans-serif;
+	--shadow-main: 4px 4px 0 0 black;
+	--shadow-active: .5px .5px 0 0 black;
+}

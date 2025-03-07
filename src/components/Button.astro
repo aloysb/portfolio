@@ -1,0 +1,44 @@
+---
+import { cva } from "class-variance-authority";
+
+interface Props {
+	text: string;
+	href: string;
+	variant?: "solid" | "outline";
+	size?: "md" | "lg";
+	className?: string;
+}
+
+const {
+	text,
+	href,
+	variant = "solid",
+	size = "md",
+	className = "",
+} = Astro.props;
+
+const buttonStyles = cva(
+	// Base styles
+	"inline-block font-semibold text-center transition-all duration-200 relative border border-black   active:translate-x-1 active:translate-y-1 active:shadow-active shadow-main rounded-lg",
+	{
+		variants: {
+			variant: {
+				solid: "bg-primary text-secondary hover:bg-primary-hover",
+				outline: "bg-white text-secondary border-black hover:bg-gray-50",
+			},
+			size: {
+				md: "px-4 py-3 text-sm",
+				lg: "px-6 py-4 text-md",
+			},
+		},
+		defaultVariants: {
+			variant: "solid",
+			size: "md",
+		},
+	},
+);
+---
+
+<a href={href} class:list={[buttonStyles({ variant, size }), className]}>
+  {text}
+</a> 

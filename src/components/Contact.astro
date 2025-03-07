@@ -1,0 +1,57 @@
+---
+import Button from './Button.astro';
+---
+
+<section id="contact" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-2">Contact</h2>
+    <p class="text-gray-600 mb-12">Let's have a chat</p>
+    
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <p class="text-lg mb-4">Want to work together or simply wish to have a chat over your ideas?</p>
+        <p class="text-lg mb-4">Leave me a message here!</p>
+        <p class="text-lg mb-4">I reply to most messages within 72 hours.</p>
+      </div>
+      
+      <div class="card-brutal p-6">
+        <form class="space-y-4">
+          <div>
+            <label for="name" class="block mb-1 text-sm font-bold">Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              class="input-brutal w-full"
+            />
+          </div>
+          
+          <div>
+            <label for="email" class="block mb-1 text-sm font-bold">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              class="input-brutal w-full"
+            />
+          </div>
+          
+          <div>
+            <label for="message" class="block mb-1 text-sm font-bold">Message</label>
+            <textarea 
+              id="message" 
+              rows="4" 
+              class="input-brutal w-full"
+              placeholder="Tell me how I can help..."
+            ></textarea>
+          </div>
+          
+          <button 
+            type="submit" 
+            class="w-full bg-primary text-secondary font-bold py-3 px-4 border-3 border-black shadow-brutal hover:translate-y-[-2px] hover:shadow-brutal-hover active:translate-y-[1px] active:shadow-brutal-active transition-all"
+          >
+            Send it
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section> 

@@ -1,0 +1,46 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  problem: string;
+  solution: string;
+  tags: string[];
+  imageUrl?: string;
+}
+
+const { title, description, problem, solution, tags, imageUrl = '/placeholder-project.jpg' } = Astro.props;
+---
+
+<div class="grid md:grid-cols-2 gap-8 mb-16">
+  <div class="bg-gray-200 rounded-md overflow-hidden aspect-video">
+    <img src={imageUrl} alt={title} class="w-full h-full object-cover" />
+  </div>
+  
+  <div>
+    <div class="flex flex-wrap gap-2 mb-2">
+      {tags.map(tag => (
+        <span class="text-xs px-3 py-1 bg-gray-100 rounded-full">{tag}</span>
+      ))}
+    </div>
+    
+    <h3 class="text-2xl font-bold mb-4">{title}</h3>
+    <p class="text-gray-600 mb-6">{description}</p>
+    
+    <div class="mb-4">
+      <h4 class="font-semibold mb-1">Problem</h4>
+      <p class="text-gray-700">{problem}</p>
+    </div>
+    
+    <div class="mb-6">
+      <h4 class="font-semibold mb-1">Solution</h4>
+      <p class="text-gray-700">{solution}</p>
+    </div>
+    
+    <div class="flex flex-wrap gap-3">
+      <Button text="View live project" href="#" variant="solid" size="md" />
+      <Button text="Learn more" href="#" variant="outline" size="md" />
+    </div>
+  </div>
+</div> 

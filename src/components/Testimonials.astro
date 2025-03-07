@@ -1,0 +1,44 @@
+---
+const testimonials = [
+  {
+    quote: "Aloys did an excellent job and we're pretty new him again for future work.",
+    author: "Anonymous Client"
+  },
+  {
+    quote: "I've collaborated with Aloys. Once again he made a great job in update a website. As always, his communication and availability were great.",
+    author: "Anonymous Client"
+  },
+  {
+    quote: "This is a true professional. Amazing communication skills, flexible and always helpful. This was an amazing experience for me and a talent I will be glad to work with again and again! Thank you!",
+    author: "Anonymous Client"
+  },
+  {
+    quote: "I enjoyed our team work and I'll hire him again in the future!",
+    author: "Anonymous Client"
+  },
+  {
+    quote: "Excellent job! Aloys delivered a very good work on this website development project. His availability and communication were great. He learned quickly.",
+    author: "Anonymous Client"
+  },
+  {
+    quote: "Excellent advisor and project follow up for the creation of an e-commerce website on a short deadline. His synthesis document to select best technical solutions was very quality. Aloys was very reactive.",
+    author: "Anonymous Client"
+  }
+];
+---
+
+<section id="testimonials" class="py-20">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-2">Testimonials</h2>
+    <p class="text-gray-600 mb-12">Don't take my word for it</p>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {testimonials.map(testimonial => (
+        <div class="card-brutal p-6">
+          <p class="italic mb-4">"{testimonial.quote}"</p>
+          <p class="font-medium text-right">— {testimonial.author}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 
