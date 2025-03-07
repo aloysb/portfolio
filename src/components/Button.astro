@@ -1,20 +1,19 @@
 ---
-import { cva } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 
-interface Props {
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'button'>, VariantProps<typeof buttonStyles> {
 	text: string;
-	href: string;
-	variant?: "solid" | "outline";
-	size?: "md" | "lg";
-	className?: string;
 }
+
 
 const {
 	text,
-	href,
 	variant = "solid",
 	size = "md",
-	className = "",
+    class: className,
+	...rest // Collect all other props
 } = Astro.props;
 
 const buttonStyles = cva(
@@ -25,6 +24,8 @@ const buttonStyles = cva(
 			variant: {
 				solid: "bg-primary text-secondary hover:bg-primary-hover",
 				outline: "bg-white text-secondary border-black hover:bg-gray-50",
+                ghost: "bg-transparent text-secondary border-none hover:bg-gray-50 shadow-none",
+                link: "bg-transparent text-secondary border-none underline hover:bg-gray-50 shadow-none",
 			},
 			size: {
 				md: "px-4 py-3 text-sm",
@@ -39,6 +40,6 @@ const buttonStyles = cva(
 );
 ---
 
-<a href={href} class:list={[buttonStyles({ variant, size }), className]}>
+<button  class:list={[buttonStyles({ variant, size }), className]} {...rest}>
   {text}
-</a> 
+</button> 
