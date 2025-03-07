@@ -15,32 +15,36 @@ interface Props {
 const { title, description, problem, solution, tags, imageUrl = '/placeholder-project.jpg', isReversed = false } = Astro.props;
 ---
 
-<div class={`grid md:grid-cols-2 gap-8 mb-16 ${isReversed ? 'md:grid-flow-col md:grid-cols-2' : ''}`}>
+<div class={`grid md:grid-cols-2 gap-8 ${isReversed ? 'md:grid-flow-col md:grid-cols-2' : ''}`}>
   <div class={`bg-gray-200 rounded-md overflow-hidden aspect-video ${isReversed ? 'md:order-2' : ''}`}>
     <img src={imageUrl} alt={title} class="w-full h-full object-cover" />
   </div>
   
-  <div class={isReversed ? 'md:order-1' : ''}>
-    <div class="flex flex-wrap gap-2 mb-2">
-      {tags.map(tag => (
-        <Badge text={tag} />
-      ))}
+  <div class={`flex flex-col h-full ${isReversed ? 'md:order-1' : ''}`}>
+    <div class="flex items-start mb-4 justify-between">
+      <h3 class="text-2xl font-bold mr-4 flex-wrap">{title}</h3>
+      <div class="flex gap-2 flex-shrink-0">
+        {tags.map(tag => (
+          <Badge text={tag} />
+        ))}
+      </div>
     </div>
     
-    <h3 class="text-2xl font-bold mb-4">{title}</h3>
-    <p class="text-gray-600 mb-6">{description}</p>
-    
-    <div class="mb-4">
-      <h4 class="font-semibold mb-1">Problem</h4>
-      <p class="text-gray-700">{problem}</p>
+    <div class="flex-grow">
+      <p class="text-gray-600 mb-6">{description}</p>
+      
+      <div class="mb-4">
+        <h4 class="font-semibold mb-1">Problem</h4>
+        <p class="text-gray-700">{problem}</p>
+      </div>
+      
+      <div class="mb-6">
+        <h4 class="font-semibold mb-1">Solution</h4>
+        <p class="text-gray-700">{solution}</p>
+      </div>
     </div>
     
-    <div class="mb-6">
-      <h4 class="font-semibold mb-1">Solution</h4>
-      <p class="text-gray-700">{solution}</p>
-    </div>
-    
-    <div class="flex flex-wrap gap-3">
+    <div class="flex flex-wrap gap-3 mt-auto">
       <Button text="View live project" href="#" variant="solid" size="md" />
       <Button text="Learn more" href="#" variant="outline" size="md" />
     </div>
