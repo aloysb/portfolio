@@ -32,8 +32,8 @@ const projects = [
     <p class="text-gray-600 mb-12">Take a look into what I've been working on recently!</p>
     
     <div>
-      {projects.map(project => (
-        <ProjectCard {...project} />
+      {projects.map((project, index) => (
+        <ProjectCard {...project} isReversed={index % 2 === 1} />
       ))}
     </div>
   </div>
