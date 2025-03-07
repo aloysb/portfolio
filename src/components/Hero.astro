@@ -5,21 +5,35 @@ import Button from "./Button.astro";
 <section class="py-32">
   <div class="container mx-auto px-4">
     <div class="max-w-5xl">
-      <h1 class="font-display text-5xl md:text-9xl leading-tight mb-8">
+      <h1 class="font-display text-5xl md:text-9xl/36 leading-tightest  mb-8">
         <span class="whitespace-nowrap block">DESIGN</span>
         <span class="whitespace-nowrap block">|> DEVELOP</span>
         <span class="whitespace-nowrap block">|> LAUNCH</span>
       </h1>
       
-      <p class="text-xl mb-6">Hello, I'm Alo (short for Aloys)!</p>
+      <div class="text-xl/8 my-24">
+      <p class="mb-6">Hello, I'm Alo (short for Aloys)!</p>
       
-      <p class="text-xl mb-8">
-        I'm a Senior UX Engineer at Shorthand - which is a fancy word for a developer that cares about crafting products that are both simple to use and aesthetically pleasing.
+      <p class="mb-8">
+        I'm a <span class="relative inline-block">
+          <span class="absolute bottom-0 left-0 w-full h-[8px] bg-yellow-400 bg-opacity-25"></span>
+          <span class="relative z-10">Senior UX Engineer</span>
+        </span> at Shorthand - which is a fancy word for a developer that cares about crafting products that are both <span class="relative inline-block">
+          <span class="absolute bottom-0 left-0 w-full h-[8px] bg-yellow-400 bg-opacity-25"></span>
+          <span class="relative z-10">simple to use</span>
+        </span> and <span class="relative inline-block">
+          <span class="absolute bottom-0 left-0 w-full h-[8px] bg-yellow-400 bg-opacity-25"></span>
+          <span class="relative z-10">aesthetically pleasing</span>
+        </span>.
       </p>
       
-      <p class="text-xl mb-12">
-        I enjoy building digital products, among other many other interests.
+      <p class="mb-12">
+        I enjoy <span class="relative inline-block">
+          <span class="absolute bottom-0 left-0 w-full h-[8px] bg-yellow-400 bg-opacity-25"></span>
+          <span class="relative z-10">building digital products</span>
+        </span>, among other many other interests.
       </p>
+      </div>
       
       <div class="flex flex-wrap gap-4">
         <Button text="See my current work" href="#projects" variant="solid" size="lg" />
