@@ -19,13 +19,7 @@ import { Info, X } from 'lucide-astro'
 
 <script>
   // Check if the banner has been dismissed before
-  const isBannerDismissed = localStorage.getItem('bannerDismissed') === 'true';
   const banner = document.getElementById('announcement-banner');
-  
-  // If the banner was previously dismissed, hide it
-  if (isBannerDismissed && banner) {
-    banner.style.display = 'none';
-  }
 
   // Add event listener to the close button
   const closeButton = document.getElementById('close-banner');
@@ -33,8 +27,6 @@ import { Info, X } from 'lucide-astro'
     closeButton.addEventListener('click', () => {
       if (banner) {
         banner.style.display = 'none';
-        // Save the dismissal in localStorage
-        localStorage.setItem('bannerDismissed', 'true');
       }
     });
   }

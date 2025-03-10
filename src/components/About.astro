@@ -1,5 +1,6 @@
 ---
 import Button from './Button.astro';
+import { MessageSquare, Download } from 'lucide-astro';
 ---
 
 <section id="about" class="py-20 ">
@@ -41,9 +42,13 @@ import Button from './Button.astro';
           Otherwise, send me a message, I would love to chat with you!
         </p>
         
-        <div class="flex flex-wrap gap-4">
-          <Button text="Send me a message" href="#contact" variant="solid" size="md" />
-          <Button text="Get my resume" href="#" variant="outline" size="md" />
+        <div class="flex md:flex-row flex-col gap-4">
+          <Button text="Send me a message" href="#contact" variant="solid" size="md">
+            <MessageSquare slot="icon-left" class="w-5 h-5"  slot="suffix"/>
+          </Button>
+          <Button text="Get my resume" href="/resume.pdf" variant="outline" size="md" download="aloys-resume.pdf">
+          <Download class=" h-5 w-5" slot="suffix" />
+          </Button>
         </div>
       </div>
     </div>

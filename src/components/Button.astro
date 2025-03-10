@@ -28,7 +28,7 @@ const {
 const Tag = href ? 'a' : 'button';
 
 const buttonStyles = cva(
-	"inline-flex font-semibold justify-center transition-all duration-200 relative border border-black   active:translate-x-1 active:translate-y-1 active:shadow-active shadow-main rounded-lg cursor-pointer",
+	"inline-flex font-semibold items-center justify-center transition-all duration-200 relative border border-black   active:translate-x-1 active:translate-y-1 active:shadow-active shadow-main rounded-lg cursor-pointer",
 	{
 		variants: {
 			variant: {
@@ -38,8 +38,8 @@ const buttonStyles = cva(
 				link: "bg-transparent text-secondary border-none underline hover:bg-gray-50 shadow-none",
 			},
 			size: {
-				md: "px-4 py-3 text-sm",
-				lg: "px-6 py-4 text-md",
+				md: "px-4 py-3 text-sm gap-1",
+				lg: "px-6 py-4 text-md gap-2",
 			},
 		},
 		defaultVariants: {
