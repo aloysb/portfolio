@@ -1,0 +1,58 @@
+{
+  "model": {
+    "globalStartTime": "2023-10-25T08:00:00Z",
+    "globalEndTime": "2023-10-25T18:00:00Z",
+    "shipments": [
+      {
+        "displayName": "meeting-1",
+        "deliveries": [
+          {
+            "arrivalLocation": {
+                "latitude": 37.422,
+                "longitude": -122.084
+            },
+            "duration": "3600s"
+          }
+        ]
+      },
+      {
+        "displayName": "meeting-2",
+        "deliveries": [
+          {
+            "arrivalLocation": {
+                "latitude": 37.410,
+                "longitude": -122.060
+            },
+            "duration": "3600s"
+          }
+        ]
+      },
+      {
+        "displayName": "meeting-3",
+        "deliveries": [
+          {
+            "arrivalLocation": {
+                "latitude": 37.415,
+                "longitude": -122.090
+            },
+            "duration": "3600s"
+          }
+        ]
+      }
+    ],
+    "vehicles": [
+      {
+        "displayName": "you",
+        "startLocation": {
+            "latitude": 37.419,
+            "longitude": -122.078
+        },
+        "startTimeWindows": [
+          {
+            "startTime": "2023-10-25T08:00:00Z"
+          }
+        ]
+      }
+    ]
+  }
+}

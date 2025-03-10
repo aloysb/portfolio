@@ -1,31 +1,41 @@
 ---
 import { cva, type VariantProps } from "class-variance-authority";
-
 import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<'button'>, VariantProps<typeof buttonStyles> {
+// Define separate types for button and anchor
+type ButtonAttributes = HTMLAttributes<'button'>;
+type AnchorAttributes = HTMLAttributes<'a'>;
+
+// // Props extends the appropriate attributes based on whether href exists
+export interface Props extends VariantProps<typeof buttonStyles> {
 	text: string;
-}
+	href?: string;
+	download?: string;
+	class?: string;
+} 
 
 
 const {
 	text,
 	variant = "solid",
 	size = "md",
-    class: className,
+	href,
+	download,
 	...rest // Collect all other props
 } = Astro.props;
 
+// Determine the base component (button or anchor)
+const Tag = href ? 'a' : 'button';
+
 const buttonStyles = cva(
-	// Base styles
-	"inline-block font-semibold text-center transition-all duration-200 relative border border-black   active:translate-x-1 active:translate-y-1 active:shadow-active shadow-main rounded-lg cursor-pointer",
+	"inline-flex font-semibold justify-center transition-all duration-200 relative border border-black   active:translate-x-1 active:translate-y-1 active:shadow-active shadow-main rounded-lg cursor-pointer",
 	{
 		variants: {
 			variant: {
 				solid: "bg-primary text-secondary hover:bg-primary-hover",
 				outline: "bg-white text-secondary border-black hover:bg-gray-50",
-                ghost: "bg-transparent text-secondary border-none hover:bg-gray-50 shadow-none",
-                link: "bg-transparent text-secondary border-none underline hover:bg-gray-50 shadow-none",
+				ghost: "bg-transparent text-secondary border-none hover:bg-gray-50 shadow-none",
+				link: "bg-transparent text-secondary border-none underline hover:bg-gray-50 shadow-none",
 			},
 			size: {
 				md: "px-4 py-3 text-sm",
@@ -40,6 +50,11 @@ const buttonStyles = cva(
 );
 ---
 
-<button  class:list={[buttonStyles({ variant, size }), className]} {...rest}>
+<Tag 
+  {...href ? { href, download } : {}}
+  class:list={[buttonStyles({ variant, size }), (rest as any).class]}
+  {...(rest as any)}
+>
   {text}
-</button> 
+  <slot name="suffix" />
+</Tag>

@@ -4,26 +4,30 @@ import ProjectCard from './ProjectCard.astro';
 const projects = [
   {
     title: "Berway",
-    description: "Booking application for traveling between using public data",
-    problem: "Organizing journeys for someone is time-consuming - how better to do this?",
-    solution: "Berway is at its essence a journey optimizer. Users based off location can see with train connections, ferries, other transport options. It incorporates the ability to customize the length of each and the time of the journeys. The application will be integrated with DNSB such as Skyscanner.",
-    tags: ["SaaS", "Transport"]
+    description: "AI sales assistant that helps optimise client visits, notify clients, and streamline sales journeys.",
+    problem: "Sales professionals waste time manually planning their client visits, leading to inefficiencies and missed opportunities.",
+    solution: "Berway acts as an AI-powered assistant to generate optimised routes for visiting multiple clients, send automated notifications, and ensure a seamless sales journey. It's built using React for a fast and interactive experience.",
+    tags: ["SaaS", "AI", "React"],
+    imageUrl: "https://picsum.photos/id/234/1000/1000",
   },
   {
     title: "Refi",
-    description: "Personal budget tool that, well, another one!",
-    problem: "We've seen a bunch of personal finance tracker over the year, and I thought I'd add to them.",
-    solution: "Refi is a simple, yet intuitive budget tracker which has deep enough UX to make it easy to review transaction. Leveraging various products, Refi is organized around speed.",
-    tags: ["Self-financed", "Single-page"]
+    description: "A fast and lightweight personal budget tool built with HTMX and Golang.",
+    problem: "Most personal finance trackers are bloated, slow, or overcomplicated for everyday use.",
+    solution: "Refi is a simple yet intuitive budget tracker with a minimal UI, powered by HTMX for seamless interactions and Golang for performance. It's designed for speed and efficiency, making transaction reviews effortless.",
+    tags: ["OSS", "HTMX", "Golang"],
+    imageUrl: "https://picsum.photos/id/235/1000/1000",
   },
   {
     title: "Microservice toolkit: authentication, rate limiter and email verification",
-    description: "A collection of microservices for common web application needs",
-    problem: "Every often, we need authentication in our digital products.",
-    solution: "Using Django for its performance, I standardized my approach to auth and created a toolkit of small components ready to incorporate into digital products.",
-    tags: ["OSS", "Django"]
+    description: "A collection of microservices for common web application needs.",
+    problem: "Authentication, rate limiting, and email verification are recurring challenges in web applications.",
+    solution: "Using Golang for its efficiency and performance, I standardised my approach to auth and created a toolkit of small, reusable microservices that can be easily integrated into digital products.",
+    tags: ["OSS", "Golang"],
+    imageUrl: "https://picsum.photos/id/236/1000/1000",
   }
 ];
+
 ---
 
 <section id="projects" class="py-20">

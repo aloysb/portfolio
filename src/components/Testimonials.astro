@@ -7,6 +7,27 @@ interface Testimonial {
 }
 
 const testimonials: Testimonial[] = [
+{ quote: "One additional job with Aloys. Once again he made a great job to update a website. As always, his communication and availability were perfect.",
+  author: "Anonymous Client"
+},
+{ quote: "Aloys did an excellent job and we'd gladly hire him again for future work.",
+  author: "Anonymous Client"
+},
+{ quote: "Aloys is a true professional. Amazing communication skills, flexible and always helpful. This was an amazing experience for me and a talent I will be glad to work with again.",
+  author: "Anonymous Client"
+},
+{ quote: "Excellent job! Aloys delivered a very good work on this website development project. His availability and communication were great. His recommendations and skills were very good and all deadlines were met.",
+  author: "Anonymous Client"
+},
+{ quote: "I highly recommend Aloys for web development. He codes fast and with care to details. This was my second job with him and I'll hire him again in the future.",
+  author: "Anonymous Client"
+},
+{ quote: "Excellent advices and project follow-up for the creation of an e-commerce website in a short deadline. His synthesis document to select the best technical solutions was high quality. Aloys was very professional.",
+  author: "Anonymous Client"
+},
+{ quote: "I highly recommend Aloys. He writes clean & fast code, and never had any issues with him. +++++ I'm planning to hire him again.",
+  author: "Anonymous Client"
+},
   {
     quote: "Aloys did an excellent job and we'd gladly hire him again for future work.",
     author: "Anonymous Client"
@@ -105,16 +126,16 @@ const rows = [row1, row2, row3, row4];
       <div class="grid md:grid-cols-2 gap-6">
         {testimonials.map((testimonial) => (
           <div class="border-2 border-black p-6 shadow-main rounded-lg">
-            <p class="text-lg mb-2">"{testimonial.quote}"</p>
-            <p class="text-sm text-right italic">— {testimonial.author}</p>
+            <p class="text-lg">"{testimonial.quote}"</p>
           </div>
         ))}
       </div>
     </div>
     
     <div class="flex justify-center mt-8">
-      <Button id="toggle-view" variant="ghost" size="md" class="mt-8 "
-       text="Thanks Alo, but this is impossible to read! Show me a list of your testimonials instead!" />
+      <button id="toggle-view" class="text-secondary hover:font-bold hover:underline transition-all duration-300 cursor-pointer">
+        Thanks Alo, but this is impossible to read! Show me a list of your testimonials instead!
+      </button>
     </div>
 
   </div>
