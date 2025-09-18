@@ -1,44 +1,53 @@
 ---
 import ProjectCard from './ProjectCard.astro';
+import { FolderOpen } from 'lucide-astro';
 
 const projects = [
   {
-    title: "Berway",
-    description: "AI sales assistant that helps optimise client visits, notify clients, and streamline sales journeys.",
-    problem: "Sales professionals waste time manually planning their client visits, leading to inefficiencies and missed opportunities.",
-    solution: "Berway acts as an AI-powered assistant to generate optimised routes for visiting multiple clients, send automated notifications, and ensure a seamless sales journey. It's built using React for a fast and interactive experience.",
-    tags: ["SaaS", "AI", "React"],
+    title: "Lorem Ipsum Web Platform",
+    description: "A modern web application built with React and TypeScript, featuring real-time collaboration and seamless user experience.",
+    tags: ["React", "Node.js", "TypeScript"],
     imageUrl: "https://picsum.photos/id/234/1000/1000",
   },
   {
-    title: "Refi",
-    description: "A fast and lightweight personal budget tool built with HTMX and Golang.",
-    problem: "Most personal finance trackers are bloated, slow, or overcomplicated for everyday use.",
-    solution: "Refi is a simple yet intuitive budget tracker with a minimal UI, powered by HTMX for seamless interactions and Golang for performance. It's designed for speed and efficiency, making transaction reviews effortless.",
-    tags: ["OSS", "HTMX", "Golang"],
+    title: "Dolor Sit Mobile App",
+    description: "Cross-platform mobile application with offline capabilities and real-time synchronization across devices.",
+    tags: ["React Native", "Firebase", "Redux"],
     imageUrl: "https://picsum.photos/id/235/1000/1000",
   },
   {
-    title: "Microservice toolkit: authentication, rate limiter and email verification",
-    description: "A collection of microservices for common web application needs.",
-    problem: "Authentication, rate limiting, and email verification are recurring challenges in web applications.",
-    solution: "Using Golang for its efficiency and performance, I standardised my approach to auth and created a toolkit of small, reusable microservices that can be easily integrated into digital products.",
-    tags: ["OSS", "Golang"],
+    title: "Consectetur E-commerce",
+    description: "Full-stack e-commerce solution with integrated payments, inventory management, and analytics dashboard.",
+    tags: ["Next.js", "Stripe", "PostgreSQL"],
     imageUrl: "https://picsum.photos/id/236/1000/1000",
   }
 ];
 
 ---
 
-<section id="projects" class="py-20">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-2">Current projects</h2>
-    <p class="text-gray-600 mb-12">Take a look into what I've been working on recently!</p>
+<section id="projects" class="py-32 relative">
+  <!-- Subtle Background -->
+  <div class="absolute inset-0 bg-gradient-to-b from-white to-gray-50/30"></div>
+  
+  <div class="relative z-10 container mx-auto px-4 max-w-6xl">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium mb-6">
+        <FolderOpen class="w-4 h-4" />
+        Recent Work
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+        Projects
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        A selection of my recent work and side projects
+      </p>
+    </div>
     
     <div class="flex flex-col gap-24">
       {projects.map((project, index) => (
         <ProjectCard {...project} isReversed={index % 2 === 1} />
       ))}
     </div>
+    
   </div>
 </section> 

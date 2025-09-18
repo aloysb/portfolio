@@ -5,14 +5,12 @@ import Badge from './Badge.astro';
 interface Props {
   title: string;
   description: string;
-  problem: string;
-  solution: string;
   tags: string[];
   imageUrl?: string;
   isReversed?: boolean;
 }
 
-const { title, description, problem, solution, tags, imageUrl = '/placeholder-project.jpg', isReversed = false } = Astro.props;
+const { title, description, tags, imageUrl = '/placeholder-project.jpg', isReversed = false } = Astro.props;
 ---
 
 <div class={`grid md:grid-cols-2 gap-8 ${isReversed ? 'md:grid-flow-col md:grid-cols-2' : ''}`}>
@@ -31,22 +29,12 @@ const { title, description, problem, solution, tags, imageUrl = '/placeholder-pr
     </div>
     
     <div class="flex-grow">
-      <p class="text-gray-600 mb-6">{description}</p>
-      
-      <div class="mb-4">
-        <h4 class="font-semibold mb-1">Problem</h4>
-        <p class="text-gray-700">{problem}</p>
-      </div>
-      
-      <div class="mb-6">
-        <h4 class="font-semibold mb-1">Solution</h4>
-        <p class="text-gray-700">{solution}</p>
-      </div>
+      <p class="text-gray-600 leading-relaxed mb-6">{description}</p>
     </div>
     
     <div class="flex flex-wrap gap-3 mt-auto">
-      <Button text="View live project" variant="solid" size="md" />
-      <Button text="Learn more" variant="outline" size="md" />
+      <Button text="View Project" variant="solid" size="md" />
+      <Button text="Learn More" variant="outline" size="md" />
     </div>
   </div>
 </div> 

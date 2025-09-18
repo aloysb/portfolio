@@ -1,54 +1,65 @@
 ---
 import Button from './Button.astro';
-import { MessageSquare, Download } from 'lucide-astro';
+import { MessageSquare, Download, MapPin, Coffee, Laptop } from 'lucide-astro';
 ---
 
-<section id="about" class="py-20 ">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-2">About</h2>
-    <p class="text-gray-600 mb-12">Get to know me</p>
+<section id="about" class="py-32 bg-white">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium mb-6">
+        <Coffee class="w-4 h-4" />
+        Get to Know Me
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+        About Me
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Passionate about creating digital experiences that make a difference
+      </p>
+    </div>
     
-    <div class="flex md:flex-row flex-col gap-12 items-center">
-      <div>
-        <div class="rounded-lg overflow-hidden mb-6 max-w-md ">
-          <img src="/profile.jpg" alt="Aloys" class="w-full" />
+    <div class="grid lg:grid-cols-2 gap-16 items-center mb-16">
+      <div class="order-2 lg:order-1">
+        <div class="space-y-6">
+          <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+            <h3 class="text-2xl font-semibold mb-4 text-gray-900">Hello, I'm Alo!</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              I'm a full stack developer who enjoys crafting digital experiences that are both technically sound and user-friendly. 
+              My passion lies in turning complex problems into elegant, scalable solutions.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              I believe in writing clean, maintainable code and building applications that solve real problems. 
+              Whether it's a complex backend system or an intuitive user interface, I focus on quality and attention to detail.
+            </p>
+          </div>
+          
+          <!-- Quick Facts -->
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="flex items-center gap-3">
+              <MapPin class="w-5 h-5 text-gray-600" />
+              <span class="font-semibold text-gray-900">Location:</span>
+              <span class="text-gray-600">Sunshine Coast, Australia</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex gap-4 mt-8">
+          <Button text="Let's Connect" href="#contact" variant="solid" size="lg" class="flex-1">
+            <MessageSquare class="w-5 h-5" slot="suffix"/>
+          </Button>
+          <Button text="Download Resume" href="/resume.pdf" variant="outline" size="lg" download="aloys-resume.pdf" class="flex-1">
+            <Download class="w-5 h-5" slot="suffix" />
+          </Button>
         </div>
       </div>
       
-      <div>
-        <p class="text-xl mb-6">Hello, I'm Alo (short for Aloys)!</p>
-        
-        <p class="mb-4">
-          I'm a Senior UX Engineer at Shorthand - which is a fancy word for a developer that cares about crafting products that are both simple to use and aesthetically pleasing.
-        </p>
-        
-        <p class="mb-4">
-          I enjoy building digital products, among other many other interests.
-        </p>
-        
-        <p class="mb-4">
-          I've already said that, didn't I?
-        </p>
-        
-        <p class="mb-4">
-          It's always a bit awkward to try to introduce yourself to the world wide web.
-        </p>
-        
-        <p class="mb-4">
-          If you want to know more about my professional credentials, you can grab a copy of my resume.
-        </p>
-        
-        <p class="mb-8">
-          Otherwise, send me a message, I would love to chat with you!
-        </p>
-        
-        <div class="flex md:flex-row flex-col gap-4">
-          <Button text="Send me a message" href="#contact" variant="outline" size="md">
-            <MessageSquare slot="icon-left" class="w-5 h-5"  slot="suffix"/>
-          </Button>
-          <Button text="Get my resume" href="/resume.pdf" variant="outline" size="md" download="aloys-resume.pdf">
-          <Download class=" h-5 w-5" slot="suffix" />
-          </Button>
+      <div class="order-1 lg:order-2">
+        <div class="relative max-w-md mx-auto">
+          <!-- Subtle Decorative Background -->
+          <div class="absolute inset-0 bg-gray-100 rounded-3xl transform rotate-3"></div>
+          <div class="relative bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-lg">
+            <img src="/profile.jpg" alt="Aloys" class="w-full aspect-square object-cover" />
+          </div>
         </div>
       </div>
     </div>

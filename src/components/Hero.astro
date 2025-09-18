@@ -1,47 +1,63 @@
 ---
 import Button from "./Button.astro";
-import { ArrowRight, Download } from "lucide-astro";
+import { Download, Mail, Code, Layers, Zap } from "lucide-astro";
 ---
 
-<section class="py-16 md:py-32">
-  <div class="container mx-auto px-4">
-    <div class="max-w-5xl">
-      <h1 class="font-display text-5xl md:text-9xl/36 leading-tightest  mb-8">
-        <span class="whitespace-nowrap block">DESIGN</span>
-        <span class="whitespace-nowrap block">|> DEVELOP</span>
-        <span class="whitespace-nowrap block">|> LAUNCH</span>
-      </h1>
-      
-      <div class="text-xl/8 my-24">
-      <p class="mb-6">Hello, I'm Alo (short for Aloys)!</p>
-      
-      <p class="mb-8">
-        I'm a <span class="relative inline-block">
-          <span class="absolute bottom-0 left-0 w-full h-[8px] bg-yellow-400 bg-opacity-25"></span>
-          <span class="relative z-10">Senior UX Engineer</span>
-        </span> at Shorthand - which is a fancy word for a developer that cares about crafting products that are both <span class="relative inline-block">
-          <span class="absolute bottom-0 left-0 w-full h-[8px] bg-yellow-400 bg-opacity-25"></span>
-          <span class="relative z-10">simple to use</span>
-        </span> and <span class="relative inline-block">
-          <span class="absolute bottom-0 left-0 w-full h-[8px] bg-yellow-400 bg-opacity-25"></span>
-          <span class="relative z-10">aesthetically pleasing</span>
-        </span>.
-      </p>
-      
-      <p class="mb-12">
-        I enjoy <span class="relative inline-block">
-          <span class="absolute bottom-0 left-0 w-full h-[8px] bg-yellow-400 bg-opacity-25"></span>
-          <span class="relative z-10">building digital products</span>
-        </span>, among many other interests.
-      </p>
+<section class="min-h-screen relative overflow-hidden">
+  <!-- Subtle Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-slate-50 to-gray-100"></div>
+  
+  <!-- Subtle Background Elements -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-80 h-80 bg-gray-200/30 rounded-full blur-3xl animate-float"></div>
+    <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-slate-200/20 rounded-full blur-3xl animate-float-delayed"></div>
+  </div>
+  
+  <!-- Grid Pattern Overlay -->
+  <div class="absolute inset-0 opacity-[0.015]" style="background-image: radial-gradient(circle at 1px 1px, #374151 1px, transparent 0); background-size: 50px 50px;"></div>
+  
+  <div class="relative z-10 flex items-center justify-center min-h-screen py-20 pt-32">
+    <div class="container mx-auto px-4 text-center max-w-5xl">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-full text-sm text-gray-600 mb-8 animate-fade-in">
+        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+        Available for freelance projects
       </div>
       
-      <div class="flex  sm:flex-row flex-col gap-4">
-        <Button text="See my current work" variant="solid" size="lg">
-          <ArrowRight class=" h-5 w-5" slot="suffix" />
-        </Button>
+      <h1 class="text-6xl md:text-8xl font-bold mb-6 tracking-tight animate-fade-in-delay-1" style="font-family: var(--font-display);">
+        <span class="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+          Aloys
+        </span>
+      </h1>
+      
+      <p class="text-2xl md:text-3xl text-gray-600 mb-4 font-medium animate-fade-in-delay-2">
+        Full Stack Developer
+      </p>
+      
+      <p class="text-xl text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay-3">
+        I build modern web applications that users love and developers can<br>
+        maintain. From concept to deployment, I create digital experiences that matter.
+      </p>
+      
+      <!-- Skills Pills -->
+      <div class="flex justify-center gap-4 mb-12 animate-fade-in-delay-4">
+        <div class="flex items-center gap-2 px-4 py-3 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200 hover:bg-white transition-all duration-300">
+          <Code class="w-5 h-5 text-gray-600" />
+          <span class="text-sm font-medium text-gray-700">Frontend</span>
+        </div>
+        <div class="flex items-center gap-2 px-4 py-3 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200 hover:bg-white transition-all duration-300">
+          <Layers class="w-5 h-5 text-gray-600" />
+          <span class="text-sm font-medium text-gray-700">Backend</span>
+        </div>
+        <div class="flex items-center gap-2 px-4 py-3 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200 hover:bg-white transition-all duration-300">
+          <Zap class="w-5 h-5 text-gray-600" />
+          <span class="text-sm font-medium text-gray-700">DevOps</span>
+        </div>
+      </div>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-5">
         <Button 
-          text="Get my resume" 
+          text="Download Resume" 
           variant="outline" 
           size="lg" 
           href="/resume.pdf" 
@@ -49,7 +65,82 @@ import { ArrowRight, Download } from "lucide-astro";
         >
           <Download class="h-5 w-5" slot="suffix" />
         </Button>
+        <Button text="Get in Touch" variant="solid" size="lg" href="#contact">
+          <Mail class="h-5 w-5" slot="suffix" />
+        </Button>
       </div>
     </div>
   </div>
-</section> 
+  
+  <!-- Gradient transition -->
+  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-white pointer-events-none"></div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(3deg); }
+  }
+  
+  @keyframes floatDelayed {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(-2deg); }
+  }
+  
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .animate-fade-in-delay-1 {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+  }
+  
+  .animate-fade-in-delay-2 {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.4s forwards;
+  }
+  
+  .animate-fade-in-delay-3 {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.6s forwards;
+  }
+  
+  .animate-fade-in-delay-4 {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.8s forwards;
+  }
+  
+  .animate-fade-in-delay-5 {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 1s forwards;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: floatDelayed 8s ease-in-out infinite;
+  }
+  
+  .animate-float-slow {
+    animation: floatSlow 10s ease-in-out infinite;
+  }
+</style> 

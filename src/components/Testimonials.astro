@@ -1,190 +1,103 @@
 ---
-import Button from "./Button.astro";
+import { Star, Quote } from "lucide-astro";
 
 interface Testimonial {
   quote: string;
   author: string;
+  role?: string;
+  rating: number;
 }
 
 const testimonials: Testimonial[] = [
-{ quote: "One additional job with Aloys. Once again he made a great job to update a website. As always, his communication and availability were perfect.",
-  author: "Anonymous Client"
-},
-{ quote: "Aloys did an excellent job and we'd gladly hire him again for future work.",
-  author: "Anonymous Client"
-},
-{ quote: "Aloys is a true professional. Amazing communication skills, flexible and always helpful. This was an amazing experience for me and a talent I will be glad to work with again.",
-  author: "Anonymous Client"
-},
-{ quote: "Excellent job! Aloys delivered a very good work on this website development project. His availability and communication were great. His recommendations and skills were very good and all deadlines were met.",
-  author: "Anonymous Client"
-},
-{ quote: "I highly recommend Aloys for web development. He codes fast and with care to details. This was my second job with him and I'll hire him again in the future.",
-  author: "Anonymous Client"
-},
-{ quote: "Excellent advices and project follow-up for the creation of an e-commerce website in a short deadline. His synthesis document to select the best technical solutions was high quality. Aloys was very professional.",
-  author: "Anonymous Client"
-},
-{ quote: "I highly recommend Aloys. He writes clean & fast code, and never had any issues with him. +++++ I'm planning to hire him again.",
-  author: "Anonymous Client"
-},
   {
-    quote: "Aloys did an excellent job and we'd gladly hire him again for future work.",
-    author: "Anonymous Client"
+    quote: "Aloys is a true professional. Amazing communication skills, flexible and always helpful. This was an amazing experience for me and a talent I will be glad to work with again.",
+    author: "Anonymous Client",
+    role: "Startup Founder",
+    rating: 5
   },
   {
-    quote: "One additional job with Aloys. Once again he made a great job to update a website. As always, his communication and availability were great.",
-    author: "Anonymous Client"
+    quote: "Excellent job! Aloys delivered a very good work on this website development project. His availability and communication were great. His recommendations and skills were very good and all deadlines were met.",
+    author: "Anonymous Client", 
+    role: "Project Manager",
+    rating: 5
   },
   {
-    quote: "Aloys is a true professional. Amazing communication skills, flexible and always helpful. This was an amazing experience for me and a talent I will be glad to work with again and again Thank you!",
-    author: "Anonymous Client"
+    quote: "I highly recommend Aloys for web development. He codes fast and with care to details. This was my second job with him and I'll hire him again in the future.",
+    author: "Anonymous Client",
+    role: "Business Owner",
+    rating: 5
   },
   {
-    quote: "I highly recommend Aloys",
-    author: "Anonymous Client"
+    quote: "Excellent advices and project follow-up for the creation of an e-commerce website in a short deadline. His synthesis document to select the best technical solutions was high quality.",
+    author: "Anonymous Client",
+    role: "E-commerce Director",
+    rating: 5
   },
   {
-    quote: "Second job with him and I'll hire him again in the future",
-    author: "Anonymous Client"
+    quote: "I highly recommend Aloys. He writes clean & fast code, and never had any issues with him. I'm planning to hire him again.",
+    author: "Anonymous Client",
+    role: "Tech Lead",
+    rating: 5
   },
   {
-    quote: "Excellent job! Aloys delivered a very good work on this website development project. His availability and communication were great. His recommendations were spot on.",
-    author: "Anonymous Client"
-  },
-  {
-    quote: "Excellent advices and project follow up for the creation of an e-commerce website in a short deadline. His synthesis document to select best technical solutions was high quality. Aloys was very reactive.",
-    author: "Anonymous Client"
-  },
-  {
-    quote: "Will hire again",
-    author: "Anonymous Client"
+    quote: "One additional job with Aloys. Once again he made a great job to update a website. As always, his communication and availability were perfect.",
+    author: "Anonymous Client",
+    role: "Marketing Manager",
+    rating: 5
   }
 ];
-
-// Function to shuffle array (Fisher-Yates algorithm)
-function shuffleArray<T>(array: T[]): T[] {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
-}
-
-// Create 4 rows with shuffled testimonials
-const row1 = shuffleArray(testimonials);
-const row2 = shuffleArray(testimonials);
-const row3 = shuffleArray(testimonials);
-const row4 = shuffleArray(testimonials);
-
-// Define different starting offsets for each row
-const offsets = [
-  "-100px", // Row 1 offset
-  "-250px", // Row 2 offset
-  "-50px",  // Row 3 offset
-  "-180px"  // Row 4 offset
-];
-
-// Define different scroll speeds and directions for each row
-const scrollSpeeds = [
-  60,   // Row 1 speed (seconds to complete one cycle)
-  -70,  // Row 2 speed (negative = opposite direction)
-  50,   // Row 3 speed (faster)
-  -80   // Row 4 speed (negative = opposite direction)
-];
-
-const rows = [row1, row2, row3, row4];
 ---
 
-<section id="testimonials" class="py-20 bg-white">
-  <div class="w-full">
-    <div class="container mx-auto mb-12 px-4">
-      <h2 class="text-4xl font-bold mb-2">Testimonials</h2>
-      <p class="text-gray-600">Don't take my word for it!</p>
+<section id="testimonials" class="py-32 relative">
+  <!-- Subtle Background -->
+  <div class="absolute inset-0 bg-gray-50"></div>
+  
+  <div class="relative z-10 container mx-auto px-4 max-w-7xl">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium mb-6">
+        <Quote class="w-4 h-4 text-gray-600" />
+        Client Feedback
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+        Testimonials
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        What clients say about working with me
+      </p>
     </div>
     
-    <div id="scrolling-testimonials" class="flex flex-col gap-4">
-      {rows.map((row, rowIndex) => (
-        <div class="w-full overflow-hidden">
-          <div class="testimonial-row flex flex-nowrap gap-4 pb-4" 
-               data-speed={scrollSpeeds[rowIndex]} 
-               data-direction={scrollSpeeds[rowIndex] < 0 ? "left" : "right"}
-               style={`margin-left: ${offsets[rowIndex]};`}>
-            {/* Double the testimonials to create seamless loop */}
-            {[...row, ...row].map((testimonial, index) => (
-              <div class="border-2 border-black p-6 shadow-main rounded-lg flex-shrink-0 whitespace-nowrap">
-                <p class="text-lg">"{testimonial.quote}"</p>
-              </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      {testimonials.map((testimonial, index) => (
+        <div class="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+          <!-- Rating Stars -->
+          <div class="flex items-center gap-1 mb-4">
+            {Array.from({ length: testimonial.rating }, (_, i) => (
+              <Star class="w-4 h-4 text-yellow-500 fill-current" />
             ))}
+          </div>
+          
+          <!-- Quote -->
+          <blockquote class="text-gray-700 leading-relaxed mb-6 relative flex-grow">
+            <Quote class="absolute -top-2 -left-2 w-6 h-6 text-gray-200" />
+            <p class="relative z-10 pl-4">
+              {testimonial.quote}
+            </p>
+          </blockquote>
+          
+          <!-- Author -->
+          <div class="flex items-center gap-3 mt-auto">
+            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-700 font-semibold text-sm">
+              {testimonial.author.charAt(0)}
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">{testimonial.author}</p>
+              {testimonial.role && (
+                <p class="text-sm text-gray-500">{testimonial.role}</p>
+              )}
+            </div>
           </div>
         </div>
       ))}
     </div>
-    
-    <div id="static-testimonials" class="hidden container mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-6">
-        {testimonials.map((testimonial) => (
-          <div class="border-2 border-black p-6 shadow-main rounded-lg">
-            <p class="text-lg">"{testimonial.quote}"</p>
-          </div>
-        ))}
-      </div>
-    </div>
-    
-    <div class="flex justify-center mt-8">
-      <button id="toggle-view" class="text-secondary hover:font-bold hover:underline transition-all duration-300 cursor-pointer">
-        Thanks Alo, but this is impossible to read! Show me a list of your testimonials instead!
-      </button>
-    </div>
-
   </div>
-</section>
-
-<style>
-  @keyframes scrollRight {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  
-  @keyframes scrollLeft {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const testimonialRows = document.querySelectorAll('.testimonial-row');
-    const scrollingTestimonials = document.getElementById('scrolling-testimonials');
-    const staticTestimonials = document.getElementById('static-testimonials');
-    const toggleButton = document.getElementById('toggle-view');
-    let isScrollingView = true;
-    
-    // Initialize scrolling animations
-    testimonialRows.forEach(row => {
-      const speed = Math.abs(parseFloat(row.getAttribute('data-speed') || '20'));
-      const direction = row.getAttribute('data-direction') || 'right';
-      
-      // Apply the appropriate animation
-      const animation = direction === 'left' ? 'scrollLeft' : 'scrollRight';
-      (row as HTMLElement).style.animation = `${animation} ${speed}s linear infinite`;
-    });
-    
-    // Toggle between scrolling and static views
-    toggleButton?.addEventListener('click', () => {
-      if (isScrollingView) {
-        // Switch to static view
-        scrollingTestimonials?.classList.add('hidden');
-        staticTestimonials?.classList.remove('hidden');
-        if (toggleButton) toggleButton.textContent = "I prefer the scrolling banner! Take me back!";
-      } else {
-        // Switch to scrolling view
-        scrollingTestimonials?.classList.remove('hidden');
-        staticTestimonials?.classList.add('hidden');
-        if (toggleButton) toggleButton.textContent = "Thanks Alo, but this is impossible to read! Show me a list of your testimonials instead!";
-      }
-      isScrollingView = !isScrollingView;
-    });
-  });
-</script> 
+</section> 
